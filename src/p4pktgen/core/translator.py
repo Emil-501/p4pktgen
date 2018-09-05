@@ -485,7 +485,7 @@ class Translator:
                     'modify_field_with_hash_based_offset',
                     'clone_ingress_pkt_to_egress',
                     'clone_egress_pkt_to_egress', 'count', 'execute_meter',
-                    'generate_digest'
+                    'generate_digest', 'register_read', 'register_write'
             ] and Config().get_allow_unimplemented_primitives()):
                 logging.warning('Primitive op {} allowed but treated as no-op'.
                                 format(primitive.op))

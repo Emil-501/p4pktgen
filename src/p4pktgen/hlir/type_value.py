@@ -91,6 +91,12 @@ class TypeValueCounterArray(TypeValue):
     def __repr__(self):
         return 'CounterArray<{}>'.format(self.counter_array_name)
 
+class TypeValueRegisterArray(TypeValue):
+    def __init__(self, json_obj):
+        self.register_array_name = json_obj
+
+    def __repr__(self):
+        return 'RegisterArray<{}>'.format(self.register_array_name)
 
 class TypeValueMeterArray(TypeValue):
     def __init__(self, json_obj):
@@ -145,6 +151,8 @@ def parse_type_value(json_obj):
         return TypeValueCounterArray(value)
     elif p4_type_str == 'meter_array':
         return TypeValueMeterArray(value)
+    elif p4_type_str == 'register_array':
+        return TypeValueRegisterArray(value)
     elif p4_type_str == 'regular':
         return TypeValueRegular(value)
     elif p4_type_str == 'lookahead':
